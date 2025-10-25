@@ -2,6 +2,11 @@
 
 A full-stack project management application built with .NET 8 Web API backend and React + TypeScript frontend. Features include user authentication, project management, task tracking, and smart scheduling.
 
+![My Photo](https://github.com/mahendr555/Mini_Project_Manager/blob/main/Screenshot%20(21).png)
+![My Photo](https://github.com/mahendr555/Mini_Project_Manager/blob/main/Screenshot%20(24).png)
+![My Photo](https://github.com/mahendr555/Mini_Project_Manager/blob/main/Screenshot%20(22).png)
+![My Photo](https://github.com/mahendr555/Mini_Project_Manager/blob/main/Screenshot%20(23).png)
+
 ## Project Structure
 ```
 MiniProjectManager/
