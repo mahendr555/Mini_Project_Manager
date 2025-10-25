@@ -1,0 +1,136 @@
+Building...
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5002
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /mnt/c/Users/praja/MyProject/Pathlock/MiniProjectManager/backend
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[@__registerDto_Username_0='?' (Size = 5), @__registerDto_Email_1='?' (Size = 14)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Username" = @__registerDto_Username_0 OR "u"."Email" = @__registerDto_Email_1)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 14), @p2='?' (Size = 44), @p3='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("CreatedAt", "Email", "PasswordHash", "Username")
+      VALUES (@p0, @p1, @p2, @p3)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__registerDto_Username_0='?' (Size = 11), @__registerDto_Email_1='?' (Size = 27)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Username" = @__registerDto_Username_0 OR "u"."Email" = @__registerDto_Email_1)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__loginDto_Username_0='?' (Size = 11)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."CreatedAt", "u"."Email", "u"."PasswordHash", "u"."Username"
+      FROM "Users" AS "u"
+      WHERE "u"."Username" = @__loginDto_Username_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__registerDto_Username_0='?' (Size = 7), @__registerDto_Email_1='?' (Size = 27)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Username" = @__registerDto_Username_0 OR "u"."Email" = @__registerDto_Email_1)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__registerDto_Username_0='?' (Size = 7), @__registerDto_Email_1='?' (Size = 25)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Username" = @__registerDto_Username_0 OR "u"."Email" = @__registerDto_Email_1)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 25), @p2='?' (Size = 44), @p3='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("CreatedAt", "Email", "PasswordHash", "Username")
+      VALUES (@p0, @p1, @p2, @p3)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Title", "p"."Description", "p"."CreatedAt", "t"."Id", "t"."Title", "t"."DueDate", "t"."IsCompleted", "t"."CreatedAt", "t"."ProjectId"
+      FROM "Projects" AS "p"
+      LEFT JOIN "Tasks" AS "t" ON "p"."Id" = "t"."ProjectId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Title", "p"."Description", "p"."CreatedAt", "t"."Id", "t"."Title", "t"."DueDate", "t"."IsCompleted", "t"."CreatedAt", "t"."ProjectId"
+      FROM "Projects" AS "p"
+      LEFT JOIN "Tasks" AS "t" ON "p"."Id" = "t"."ProjectId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 14), @p2='?' (Size = 12), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Projects" ("CreatedAt", "Description", "Title", "UserId")
+      VALUES (@p0, @p1, @p2, @p3)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 18), @p2='?' (Size = 20), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Projects" ("CreatedAt", "Description", "Title", "UserId")
+      VALUES (@p0, @p1, @p2, @p3)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__projectId_0='?' (DbType = Int32), @__userId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."CreatedAt", "p"."Description", "p"."Title", "p"."UserId"
+      FROM "Projects" AS "p"
+      WHERE "p"."Id" = @__projectId_0 AND "p"."UserId" = @__userId_1
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__projectId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."Title", "t"."DueDate", "t"."IsCompleted", "t"."CreatedAt", "t"."ProjectId"
+      FROM "Tasks" AS "t"
+      WHERE "t"."ProjectId" = @__projectId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__projectId_0='?' (DbType = Int32), @__userId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."CreatedAt", "p"."Description", "p"."Title", "p"."UserId"
+      FROM "Projects" AS "p"
+      WHERE "p"."Id" = @__projectId_0 AND "p"."UserId" = @__userId_1
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__projectId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."Title", "t"."DueDate", "t"."IsCompleted", "t"."CreatedAt", "t"."ProjectId"
+      FROM "Tasks" AS "t"
+      WHERE "t"."ProjectId" = @__projectId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Title", "p"."Description", "p"."CreatedAt", "t"."Id", "t"."Title", "t"."DueDate", "t"."IsCompleted", "t"."CreatedAt", "t"."ProjectId"
+      FROM "Projects" AS "p"
+      LEFT JOIN "Tasks" AS "t" ON "p"."Id" = "t"."ProjectId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Title", "p"."Description", "p"."CreatedAt", "t"."Id", "t"."Title", "t"."DueDate", "t"."IsCompleted", "t"."CreatedAt", "t"."ProjectId"
+      FROM "Projects" AS "p"
+      LEFT JOIN "Tasks" AS "t" ON "p"."Id" = "t"."ProjectId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__projectId_0='?' (DbType = Int32), @__userId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."CreatedAt", "p"."Description", "p"."Title", "p"."UserId"
+      FROM "Projects" AS "p"
+      WHERE "p"."Id" = @__projectId_0 AND "p"."UserId" = @__userId_1
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "Projects"
+      WHERE "Id" = @p0
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__projectId_0='?' (DbType = Int32), @__userId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."CreatedAt", "p"."Description", "p"."Title", "p"."UserId"
+      FROM "Projects" AS "p"
+      WHERE "p"."Id" = @__projectId_0 AND "p"."UserId" = @__userId_1
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "Projects"
+      WHERE "Id" = @p0
+      RETURNING 1;
